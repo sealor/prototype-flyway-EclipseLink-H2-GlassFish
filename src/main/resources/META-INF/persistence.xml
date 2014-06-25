@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<persistence-unit name="testPU" transaction-type="JTA">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+
+		<jta-data-source>jdbc/h2database</jta-data-source>
+
+		<class>io.github.sealor.prototype.flyway.eclipselink.h2.glassfish.model.Book</class>
+	</persistence-unit>
+</persistence>

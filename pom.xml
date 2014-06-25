@@ -4,13 +4,13 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
 	<groupId>io.github.sealor.prototype.flyway.eclipselink.h2.glassfish</groupId>
 	<artifactId>prototype-flyway-EclipseLink-H2-GlassFish</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<name>prototype-flyway-EclipseLink-H2-GlassFish</name>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<build>
 		<plugins>
@@ -22,6 +22,29 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.17</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -41,23 +64,25 @@
 			<scope>test</scope>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 			<version>3.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
 			<version>2.5.0</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.178</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
