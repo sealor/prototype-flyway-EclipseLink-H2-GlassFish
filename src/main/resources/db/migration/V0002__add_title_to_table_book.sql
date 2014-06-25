@@ -1,0 +1,1 @@
+ALTER TABLE Book ADD title VARCHAR(50)

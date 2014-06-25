@@ -3,7 +3,7 @@
 <resources>
 
 	<jdbc-connection-pool name="testpool" res-type="javax.sql.DataSource" datasource-classname="org.h2.jdbcx.JdbcDataSource">
-		<property name="url" value="jdbc:h2:mem:mydb;create=true" />
+		<property name="url" value="jdbc:h2:mem:mydb" />
 	</jdbc-connection-pool>
 
 	<jdbc-resource enabled="true" jndi-name="jdbc/h2database" pool-name="testpool">
